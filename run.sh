@@ -2,12 +2,12 @@
 
 : ${MMS_AGENT:=monitoring}
 
-if [[ -n ${MMS_API_KEY} ]]; then
-  sed -e "s/mmsApiKey=/mmsApiKey=${MMS_API_KEY}/" \
+if [[ -n ${MMS_AGENT_API_KEY} ]]; then
+  sed -e "s/mmsApiKey=/mmsApiKey=${MMS_AGENT_API_KEY}/" \
     -i /etc/mongodb-mms/backup-agent.config \
     -i /etc/mongodb-mms/monitoring-agent.config
 else
-  echo 'MMS_API_KEY must be set. Exiting..'
+  echo 'MMS_AGENT_API_KEY must be set. Exiting..'
   exit 1
 fi
 
